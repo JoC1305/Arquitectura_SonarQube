@@ -24,26 +24,26 @@ function Registro() {
     let newErrors = { ...errors }
     if (name === 'email') {
       const validation = validarFormatoEmail(value)
-      if (!validation.isValid) {
-        newErrors.email = validation.errorMessage
-      } else {
+      if (validation.isValid) {
         delete newErrors.email
+      } else {
+        newErrors.email = validation.errorMessage
       }
     }
     if (name === 'password') {
       const validation = validarPasswordCompleja(value)
-      if (!validation.isValid) {
-        newErrors.password = validation.errorMessage
-      } else {
+      if (validation.isValid) {
         delete newErrors.password
+      } else {
+        newErrors.password = validation.errorMessage
       }
     }
     if (name === 'confirmPassword') {
       const validation = validarConfirmacionClave(formData.password, value)
-      if (!validation.isValid) {
-        newErrors.confirmPassword = validation.errorMessage
-      } else {
+      if (validation.isValid) {
         delete newErrors.confirmPassword
+      } else {
+        newErrors.confirmPassword = validation.errorMessage
       }
     }
     setErrors(newErrors)
