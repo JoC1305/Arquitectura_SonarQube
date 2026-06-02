@@ -1,0 +1,14 @@
+/* Footer Styles */
+.footer {
+  background-color: var(--dark-bg);
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: auto;
+  border-top: 1px solid var(--border-color);
+  width: 100%;
+}
+
+.footer p {
+  margin: 0;
+}

@@ -1,0 +1,68 @@
+
+.resenas-recientes {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.resenas-recientes h1 {
+  font-size: 2rem;
+  color: var(--text-dark);
+}
+
+.resenas-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.resena-card {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 12px 40px rgba(2,6,23,0.6);
+  border-left: 4px solid var(--primary-color);
+  transition: all 0.3s;
+  border: 1px solid var(--card-border);
+}
+
+.resena-card:hover {
+  box-shadow: 0 20px 60px rgba(2,6,23,0.75);
+  transform: translateX(5px);
+}
+
+.resena-card h3 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+}
+
+.resena-card .autor {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+
+.resena-card .fecha {
+  color: #9ca3af;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.resena-card .comentario {
+  color: var(--text-dark);
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .resena-card {
+    padding: 1.5rem;
+  }
+
+  .resena-card h3 {
+    font-size: 1.2rem;
+  }
+}

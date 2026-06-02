@@ -1,0 +1,127 @@
+
+.perfil {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.perfil h1 {
+  font-size: 2rem;
+  color: var(--text-dark);
+}
+
+.juego-info {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 12px 40px rgba(2,6,23,0.6);
+  border-top: 4px solid var(--primary-color);
+  border: 1px solid var(--card-border);
+}
+
+.juego-info h2 {
+  color: var(--primary-color);
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.juego-info .desarrollador {
+  color: var(--text-light);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.juego-info .lanzamiento {
+  color: var(--text-light);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.juego-info .descripcion {
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+.resenas {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.resenas h3 {
+  font-size: 1.5rem;
+  color: var(--text-dark);
+}
+
+.resenas-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.resena-card {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 12px 40px rgba(2,6,23,0.6);
+  border-left: 4px solid var(--secondary-color);
+  transition: all 0.3s;
+  border: 1px solid var(--card-border);
+}
+
+.resena-card:hover {
+  box-shadow: 0 20px 60px rgba(139, 92, 246, 0.18);
+  transform: translateX(5px);
+}
+
+.resena-card h4 {
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.resena-card .fecha {
+  color: #9ca3af;
+  font-size: 0.85rem;
+  margin-bottom: 0.75rem;
+}
+
+.resena-card .comentario {
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+.juego-banner {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  margin-bottom: 1.5rem;
+}
+/* Responsive */
+@media (max-width: 768px) {
+  .perfil {
+    padding: 0 1rem;
+  }
+
+  .juego-info {
+    padding: 1.5rem;
+  }
+
+  .juego-info h2 {
+    font-size: 1.5rem;
+  }
+}
+.reseña-btn {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #844795;
+    color: #fff;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  } 
+  .reseña-btn:hover {
+    background-color: rgba(139, 92, 246, 0.18);
+  }

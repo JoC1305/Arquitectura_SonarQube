@@ -1,0 +1,89 @@
+
+.realizar-resena {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.realizar-resena h1 {
+  font-size: 2rem;
+  color: var(--text-dark);
+  text-align: center;
+}
+
+.form-resena {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 12px 40px rgba(2,6,23,0.6);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border: 1px solid var(--card-border);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  color: rgb(35,35,35);
+  gap: 0.5rem;
+}
+
+.form-group label {
+  color: var(--text-dark);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 0.75rem;
+  border: 2px solid var(--border-color);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.form-group textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.error-text {
+  color: var(--danger-color);
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+.btn-primary {
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .realizar-resena {
+    padding: 0 1rem;
+  }
+
+  .form-resena {
+    padding: 1.5rem;
+  }
+
+  .realizar-resena h1 {
+    font-size: 1.5rem;
+  }
+}
