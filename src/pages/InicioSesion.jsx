@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { supabase } from '../services/supabaseClient'
-import { validarFormatoEmail } from '../utils/validations'
+import { actualizarErrorEmail, validarFormatoEmail } from '../utils/validations'
 import '../styles/pages/Auth.css'
 
 function InicioSesion() {
@@ -18,17 +18,9 @@ function InicioSesion() {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
 
-    let newErrors = { ...errors }
     if (name === 'email') {
-      const validation = validarFormatoEmail(value)
-      if (validation.isValid) {
-        delete newErrors.email  
-      } else {
-        newErrors.email = validation.errorMessage
-        
-      }
+      setErrors(prev => actualizarErrorEmail(prev, value))
     }
-    setErrors(newErrors)
   }
 
   const handleSubmit = async (e) => {

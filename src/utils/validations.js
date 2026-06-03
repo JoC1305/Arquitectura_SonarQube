@@ -21,6 +21,15 @@ export const validarFormatoEmail = (email) => {
   return { isValid: true }
 }
 
+export const actualizarErrorEmail = (errors, email) => {
+  const validation = validarFormatoEmail(email)
+  if (validation.isValid) {
+    const { email: _email, ...rest } = errors
+    return rest
+  }
+  return { ...errors, email: validation.errorMessage }
+}
+
 // Validar contraseña compleja
 export const validarPasswordCompleja = (password) => {
   if (!password || password.length < 6) {
