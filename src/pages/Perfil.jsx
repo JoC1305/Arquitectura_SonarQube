@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import { supabase } from '../services/supabaseClient'
 import '../styles/pages/Perfil.css'
 
@@ -92,6 +93,13 @@ function Perfil({ user }) {
       </section>
     </div>
   )
+}
+
+Perfil.propTypes = {
+  user: PropTypes.shape({
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    email: PropTypes.string,
+  }).isRequired,
 }
 
 export default Perfil

@@ -60,8 +60,8 @@ function Juegos() {
 
         if (error) throw error
 
-        const juegoIds = data.map(item => item.juego_id)
-        const filtered = juegos.filter(juego => juegoIds.includes(juego.id))
+        const juegoIds = new Set(data.map(item => item.juego_id))
+        const filtered = juegos.filter(juego => juegoIds.has(juego.id))
         setFilteredJuegos(filtered)
       } catch (err) {
         console.error('Error filtrando por género:', err)
