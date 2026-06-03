@@ -80,7 +80,7 @@ function JuegoDetalle() {
         )}
       </section>
       <section className='Reseñar'>
-        <button class='reseña-btn' onClick={hacerReseña}>Realizar Reseña</button>
+        <button className='reseña-btn' onClick={hacerReseña}>Realizar Reseña</button>
       </section>
     </div>
   )
