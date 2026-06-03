@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { supabase } from '../services/supabaseClient'
-import { validarFormatoEmail, validarPasswordCompleja, validarConfirmacionClave } from '../utils/validations'
+import { actualizarErrorEmail, validarFormatoEmail, validarPasswordCompleja, validarConfirmacionClave } from '../utils/validations'
 import '../styles/pages/Auth.css'
 
 function Registro() {
@@ -23,12 +23,7 @@ function Registro() {
     // Validación en tiempo real
     let newErrors = { ...errors }
     if (name === 'email') {
-      const validation = validarFormatoEmail(value)
-      if (validation.isValid) {
-        delete newErrors.email
-      } else {
-        newErrors.email = validation.errorMessage
-      }
+      newErrors = actualizarErrorEmail(newErrors, value)
     }
     if (name === 'password') {
       const validation = validarPasswordCompleja(value)
