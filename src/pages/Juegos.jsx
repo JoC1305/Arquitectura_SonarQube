@@ -88,7 +88,7 @@ function Juegos() {
         <h3>Filtrar por género:</h3>
         <div className="generos-buttons">
           <button
-            className={`genero-btn ${!selectedGenero ? 'active' : ''}`}
+            className={`genero-btn ${selectedGenero ? '' : 'active'}`}
             onClick={() => setSelectedGenero(null)}
           >
             Todos los géneros
@@ -110,20 +110,20 @@ function Juegos() {
           filteredJuegos.map(juego => (
             <div key={juego.id} className="juego-card">
               {juego.cover_url && (
-                <div className="portada-container" onClick={() => handleSelectGame(juego.id)}>
+                <button className="portada-container" onClick={() => handleSelectGame(juego.id)}>
                   <img 
                     src={juego.cover_url} 
                     alt={juego.nombre}
                     className="portada-img"
                   />
-                </div>
+                </button>
               )}
-              <div className="juego-info" onClick={() => handleSelectGame(juego.id)}>
+              <button className="juego-info" onClick={() => handleSelectGame(juego.id)}>
                 <h3>{juego.nombre}</h3>
                 <p>{juego.descripcion || 'Sin descripción disponible'}</p>
                 {juego.desarrollador && <p className="desarrollador">Por: {juego.desarrollador}</p>}
                 {juego.año_lanzamiento && <p className="year">Año: {juego.año_lanzamiento}</p>}
-              </div>
+              </button>
             </div>
           ))
         ) : (
