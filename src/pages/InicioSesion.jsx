@@ -21,10 +21,11 @@ function InicioSesion() {
     let newErrors = { ...errors }
     if (name === 'email') {
       const validation = validarFormatoEmail(value)
-      if (!validation.isValid) {
-        newErrors.email = validation.errorMessage
+      if (validation.isValid) {
+        delete newErrors.email  
       } else {
-        delete newErrors.email
+        newErrors.email = validation.errorMessage
+        
       }
     }
     setErrors(newErrors)
