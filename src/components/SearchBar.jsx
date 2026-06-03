@@ -62,20 +62,19 @@ function SearchBar() {
     navigate(`/juego/${gameId}`)
   }
 
-  const handleKeyDown = (e) => {
-    if (e.key === 'Escape') {
-      setShowResults(false)
-    }
-  }
-
   return (
-    <div className="search-bar" onKeyDown={handleKeyDown}>
+    <div className="search-bar">
       <input
         type="text"
         placeholder="Buscar usuarios, juegos..."
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         onFocus={() => query && setShowResults(true)}
+        onKeyDown={(e) => {
+          if (e.key === 'Escape') {
+            setShowResults(false)
+          }
+        }}
         className="search-input"
       />
       
@@ -91,14 +90,15 @@ function SearchBar() {
             <div className="result-group">
               <h4>👤 Usuarios</h4>
               {results.usuarios.map(usuario => (
-                <div
+                <button
                   key={usuario.id}
+                  type="button"
                   className="result-item"
                   onClick={() => handleSelectUser(usuario.id)}
                 >
                   <strong>{usuario.nombre}</strong>
                   <small>{usuario.email}</small>
-                </div>
+                </button>
               ))}
             </div>
           )}
@@ -107,13 +107,14 @@ function SearchBar() {
             <div className="result-group">
               <h4>🎮 Juegos</h4>
               {results.juegos.map(juego => (
-                <div
+                <button
                   key={juego.id}
+                  type="button"
                   className="result-item"
                   onClick={() => handleSelectGame(juego.id)}
                 >
                   <strong>{juego.nombre}</strong>
-                </div>
+                </button>
               ))}
             </div>
           )}

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import PropTypes from 'prop-types'
 import { validarResena } from '../utils/validations'
 
 function ValidacionesDemo() {
@@ -123,7 +124,8 @@ function TestCase({ label, texto }) {
   const validation = validarResena(texto, 5, 50)
 
   return (
-    <div 
+    <button
+      type="button"
       style={styles.testCase}
       onClick={() => setExpanded(!expanded)}
     >
@@ -139,8 +141,13 @@ function TestCase({ label, texto }) {
           )}
         </div>
       )}
-    </div>
+    </button>
   )
+}
+
+TestCase.propTypes = {
+  label: PropTypes.string.isRequired,
+  texto: PropTypes.string.isRequired,
 }
 
 const styles = {
