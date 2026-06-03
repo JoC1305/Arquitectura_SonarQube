@@ -32,7 +32,7 @@ function ValidacionesDemo() {
           <div style={styles.section}>
             <div style={{
               ...styles.result,
-              ...(!resultado.isValid ? styles.resultError : styles.resultSuccess)
+              ...(resultado.isValid ? styles.resultSuccess : styles.resultError)
             }}>
               <strong>
                 {resultado.isValid ? '✅ VÁLIDO' : '❌ INVÁLIDO'}
@@ -46,6 +46,12 @@ function ValidacionesDemo() {
               <summary style={styles.summary}>📊 Detalles técnicos</summary>
               <div style={styles.detailsContent}>
                 <table style={styles.table}>
+                  <thead>
+                    <tr>
+                      <th scope="col">Dato</th>
+                      <th scope="col">Valor</th>
+                    </tr>
+                  </thead>
                   <tbody>
                     <tr>
                       <td><strong>Número de palabras:</strong></td>
