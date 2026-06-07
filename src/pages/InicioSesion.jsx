@@ -12,7 +12,9 @@ function InicioSesion() {
   })
   const [errors, setErrors] = useState({})
   const [loading, setLoading] = useState(false)
+  const [resetLoading, setResetLoading] = useState(false)
   const [generalError, setGeneralError] = useState(null)
+  const [resetMessage, setResetMessage] = useState(null)
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -26,6 +28,7 @@ function InicioSesion() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setGeneralError(null)
+    setResetMessage(null)
 
     const emailValidation = validarFormatoEmail(formData.email)
     if (!emailValidation.isValid) {
@@ -51,12 +54,40 @@ function InicioSesion() {
     }
   }
 
+  const handleForgotPassword = async () => {
+    setGeneralError(null)
+    setResetMessage(null)
+
+    const emailValidation = validarFormatoEmail(formData.email)
+    if (!emailValidation.isValid) {
+      setErrors({ email: emailValidation.errorMessage })
+      return
+    }
+
+    setResetLoading(true)
+
+    try {
+      const { error } = await supabase.auth.resetPasswordForEmail(formData.email, {
+        redirectTo: `${globalThis.location.origin}/restablecer-contraseña`
+      })
+
+      if (error) throw error
+
+      setResetMessage('Se envió un correo con instrucciones para restablecer tu contraseña.')
+    } catch (err) {
+      setGeneralError(err.message || 'No se pudo enviar el correo de recuperación')
+    } finally {
+      setResetLoading(false)
+    }
+  }
+
   return (
     <div className="auth-page">
       <div className="auth-container">
         <h1>Iniciar Sesión</h1>
         
         {generalError && <div className="alert alert-error">{generalError}</div>}
+        {resetMessage && <div className="alert alert-success">{resetMessage}</div>}
 
         <form onSubmit={handleSubmit} className="auth-form">
           <div className="form-group">
@@ -85,6 +116,15 @@ function InicioSesion() {
               required
             />
           </div>
+
+          <button
+            type="button"
+            className="text-link-button"
+            onClick={handleForgotPassword}
+            disabled={resetLoading}
+          >
+            {resetLoading ? 'Enviando...' : '¿Olvidaste tu contraseña?'}
+          </button>
 
           <button type="submit" disabled={loading} className="btn-primary">
             {loading ? 'Iniciando sesión...' : 'Iniciar Sesión'}

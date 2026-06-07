@@ -86,6 +86,45 @@
   color: var(--secondary-color);
 }
 
+.text-link-button {
+  background: transparent;
+  border: none;
+  color: var(--primary-color);
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0;
+  text-align: left;
+}
+
+.text-link-button:hover:not(:disabled) {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
+
+.text-link-button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.alert {
+  border-radius: 0.75rem;
+  padding: 0.85rem 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.alert-error {
+  background: rgba(239, 68, 68, 0.12);
+  color: #b91c1c;
+  border: 1px solid rgba(239, 68, 68, 0.25);
+}
+
+.alert-success {
+  background: rgba(34, 197, 94, 0.12);
+  color: #166534;
+  border: 1px solid rgba(34, 197, 94, 0.25);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .auth-page {

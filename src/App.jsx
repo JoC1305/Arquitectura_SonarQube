@@ -14,6 +14,7 @@ import UsuarioDetalle from './pages/UsuarioDetalle'
 import Acerca from './pages/Acerca'
 import InicioSesion from './pages/InicioSesion'
 import Registro from './pages/Registro'
+import RestablecerContraseña from './pages/RestablecerContraseña'
 import TestValidaciones from './pages/TestValidaciones'
 import './styles/App.css'
 
@@ -144,6 +145,7 @@ function App() {
             <Route path="/test-validaciones" element={<TestValidaciones />} />
             <Route path="/inicio-sesion" element={user ? <Navigate to="/" /> : <InicioSesion />} />
             <Route path="/registro" element={user ? <Navigate to="/" /> : <Registro />} />
+            <Route path="/restablecer-contraseña" element={<RestablecerContraseña />} />
           </Routes>
         </main>
         <Footer />
