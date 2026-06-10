@@ -76,32 +76,7 @@ const renderComponent = () => {
   return RealizarReseña()
 }
 
-const flattenChildren = (children) => {
-  if (children === null || children === undefined) {
-    return []
-  }
-
-  return Array.isArray(children) ? children : [children]
-}
-
-const findElement = (node, predicate) => {
-  if (!node || typeof node !== 'object') {
-    return null
-  }
-
-  if (predicate(node)) {
-    return node
-  }
-
-  for (const child of flattenChildren(node.props?.children)) {
-    const found = findElement(child, predicate)
-    if (found) {
-      return found
-    }
-  }
-
-  return null
-}
+const { flattenChildren, findElement } = require('../testUtils/domHelpers')
 
 beforeEach(() => {
   React.__resetHooks()

@@ -64,29 +64,20 @@ const renderComponent = () => {
   return Registro()
 }
 
-const flattenChildren = (children) => {
-  if (children === null || children === undefined) return []
-  return Array.isArray(children) ? children : [children]
-}
-
-const findElement = (node, predicate) => {
-  if (!node || typeof node !== 'object') return null
-  if (predicate(node)) return node
-  for (const child of flattenChildren(node.props?.children)) {
-    const found = findElement(child, predicate)
-    if (found) return found
-  }
-  return null
-}
-
-const findAllElements = (node, predicate, matches = []) => {
-  if (!node || typeof node !== 'object') return matches
-  if (predicate(node)) matches.push(node)
-  for (const child of flattenChildren(node.props?.children)) {
-    findAllElements(child, predicate, matches)
-  }
-  return matches
-}
+const {
+  flattenChildren,
+  findElement,
+  findAllElements,
+  getInput,
+  getForm,
+  getButton,
+  getErrorText,
+  getAlert,
+  getAllErrorMessages,
+  fillForm,
+  submitForm,
+  clickForgotPassword,
+} = require('../testUtils/domHelpers')
 
 beforeEach(() => {
   React.__resetHooks()
