@@ -60,7 +60,7 @@ body {
 
 .error {
   background-color: #fee2e2;
-  color: #dc2626;
+  color: #550101;
   padding: 1rem;
   border-radius: 0.5rem;
   margin: 1rem 0;
@@ -76,13 +76,13 @@ body {
 
 .alert-error {
   background-color: #fee2e2;
-  color: #dc2626;
+  color: #550101;
   border-left-color: #dc2626;
 }
 
 .alert-success {
   background-color: #d1fae5;
-  color: #059669;
+  color: #550101;
   border-left-color: #059669;
 }
 
