@@ -44,7 +44,7 @@ export const validarPasswordCompleja = (password) => {
       errorMessage: 'La contraseña debe contener al menos una mayúscula'
     }
   }
-  if (!/['\d']/.test(password)) {
+  if (!/\d/.test(password)) {
     return {
       isValid: false,
       errorMessage: 'La contraseña debe contener al menos un número'
