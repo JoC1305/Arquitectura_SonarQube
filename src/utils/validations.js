@@ -24,7 +24,7 @@ export const validarFormatoEmail = (email) => {
 export const actualizarErrorEmail = (errors, email) => {
   const validation = validarFormatoEmail(email)
   if (validation.isValid) {
-    const { email: _email, ...rest } = errors
+    const { email,...rest } = errors
     return rest
   }
   return { ...errors, email: validation.errorMessage }
