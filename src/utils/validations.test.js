@@ -1,4 +1,4 @@
-const { validarPasswordCompleja } = require('./validations.js');
+const { actualizarErrorEmail, validarPasswordCompleja } = require('./validations.js');
 
 describe('validarPasswordCompleja', () => {
   const runPasswordTest = (password, expectedValid, expectedErrorMessage) => {
@@ -23,5 +23,27 @@ describe('validarPasswordCompleja', () => {
 
   test('debe ser válida si cumple con todos los requisitos', () => {
     runPasswordTest('Abc123', true);
+  });
+});
+
+describe('actualizarErrorEmail', () => {
+  const runEmailTest = (errors, email, expectedErrors) => {
+    expect(actualizarErrorEmail(errors, email)).toEqual(expectedErrors);
+  };
+
+  test('debe agregar un error cuando el email no es válido', () => {
+    runEmailTest(
+      { nombre: 'error previo' },
+      'correo-invalido',
+      { nombre: 'error previo', email: 'Por favor, ingresa un email válido' }
+    );
+  });
+
+  test('debe eliminar el error de email cuando el email es válido', () => {
+    runEmailTest(
+      { nombre: 'error previo', email: 'Por favor, ingresa un email válido' },
+      'usuario@correo.com',
+      { nombre: 'error previo' }
+    );
   });
 });
