@@ -1,4 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import { supabase } from '../services/supabaseClient'
 import SearchBar from './SearchBar'
 import '../styles/Header.css'
@@ -42,6 +43,13 @@ function Header({ user }) {
       </div>
     </header>
   )
+}
+
+Header.propTypes = {
+  user: PropTypes.shape({
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    email: PropTypes.string,
+  }),
 }
 
 export default Header
