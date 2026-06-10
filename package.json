@@ -8,13 +8,7 @@
     "preview": "vite preview",
     "test": "jest --coverage"
   },
-  "jest": {
-    "collectCoverage": true,
-    "coverageReporters": [
-      "lcov",
-      "text"
-    ]
-  },
+
   "dependencies": {
     "@supabase/supabase-js": "^2.38.0",
     "prop-types": "^15.8.1",
